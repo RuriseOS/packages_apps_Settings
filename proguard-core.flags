@@ -1,0 +1,2 @@
+# RuriseSettings
+-keep class com.rurise.settings.**
