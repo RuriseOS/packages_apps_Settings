@@ -15,6 +15,9 @@
   limitations under the License.
   -->
 <resources>
+    <!-- Default order for the account category on the expressive Settings homepage. -->
+    <integer name="config_top_level_account_category_order">-90</integer>
+
     <!-- Reserve all the job ids in settings -->
     <integer name="job_anomaly_clean_up">100</integer>
     <integer name="job_anomaly_config_update">101</integer>

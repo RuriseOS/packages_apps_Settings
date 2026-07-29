@@ -243,7 +243,7 @@
     </com.android.settingslib.widget.UntitledPreferenceCategory>
 
     <com.android.settingslib.widget.UntitledPreferenceCategory
-        android:order="-90"
+        android:order="@integer/config_top_level_account_category_order"
         android:key="top_level_account_category"/>
 
     <com.android.settingslib.widget.UntitledPreferenceCategory
