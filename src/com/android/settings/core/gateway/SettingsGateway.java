@@ -223,6 +223,7 @@ import com.android.settings.wifi.savedaccesspoints2.SavedAccessPointsWifiSetting
 import com.android.settings.wifi.tether.WifiTetherSettings;
 
 import com.rurise.settings.RuriseSettings;
+import com.rurise.settings.fonts.SystemFontSettings;
 
 public class SettingsGateway {
 
@@ -435,6 +436,7 @@ public class SettingsGateway {
             SummarizationPreferenceFragment.class.getName(),
             SafetyCenterFragment.class.getName(),
             RuriseSettings.class.getName(),
+            SystemFontSettings.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
