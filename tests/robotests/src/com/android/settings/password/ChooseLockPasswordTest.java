@@ -457,8 +457,7 @@ public class ChooseLockPasswordTest {
                 /* minComplexity= */ PASSWORD_COMPLEXITY_NONE,
                 /* passwordType= */ PASSWORD_QUALITY_NUMERIC,
                 /* userEnteredPassword= */ LockscreenCredential.createPassword("11"),
-                "PIN must be at least 4 digits"
-                        + ", but a 6-digit PIN is recommended for added security");
+                "PIN must be at least 4 digits");
     }
 
     @Test
@@ -497,11 +496,17 @@ public class ChooseLockPasswordTest {
         TextView securityMessage =
                 passwordActivity.findViewById(R.id.auto_pin_confirm_security_message);
 
-        passwordEntry.setText("1234");
+        passwordEntry.setText("123");
         fragment.updateUi();
         assertThat(pinAutoConfirmOption.getVisibility()).isEqualTo(View.GONE);
         assertThat(securityMessage.getVisibility()).isEqualTo(View.GONE);
         assertThat(pinAutoConfirmOption.isChecked()).isFalse();
+
+        passwordEntry.setText("1234");
+        fragment.updateUi();
+        assertThat(pinAutoConfirmOption.getVisibility()).isEqualTo(View.VISIBLE);
+        assertThat(securityMessage.getVisibility()).isEqualTo(View.VISIBLE);
+        assertThat(pinAutoConfirmOption.isChecked()).isTrue();
 
         passwordEntry.setText("123456");
         fragment.updateUi();
@@ -513,7 +518,7 @@ public class ChooseLockPasswordTest {
         fragment.updateUi();
         assertThat(pinAutoConfirmOption.getVisibility()).isEqualTo(View.VISIBLE);
         assertThat(securityMessage.getVisibility()).isEqualTo(View.VISIBLE);
-        assertThat(pinAutoConfirmOption.isChecked()).isFalse();
+        assertThat(pinAutoConfirmOption.isChecked()).isTrue();
 
         passwordEntry.setText("123456");
         fragment.updateUi();

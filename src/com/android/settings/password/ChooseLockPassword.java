@@ -30,6 +30,7 @@ import static android.view.View.ACCESSIBILITY_LIVE_REGION_ASSERTIVE;
 import static android.view.View.ACCESSIBILITY_LIVE_REGION_POLITE;
 
 import static com.android.internal.widget.LockPatternUtils.CREDENTIAL_TYPE_NONE;
+import static com.android.internal.widget.LockPatternUtils.MIN_AUTO_PIN_REQUIREMENT_LENGTH;
 import static com.android.internal.widget.PasswordValidationError.CONTAINS_INVALID_CHARACTERS;
 import static com.android.internal.widget.PasswordValidationError.CONTAINS_SEQUENCE;
 import static com.android.internal.widget.PasswordValidationError.NOT_ENOUGH_DIGITS;
@@ -251,8 +252,6 @@ public class ChooseLockPassword extends SettingsActivity {
         private static final String FRAGMENT_TAG_SAVE_AND_FINISH = "save_and_finish_worker";
         private static final String KEY_IS_AUTO_CONFIRM_CHECK_MANUALLY_CHANGED =
                 "auto_confirm_option_set_manually";
-
-        private static final int MIN_AUTO_PIN_REQUIREMENT_LENGTH = 6;
 
         private LockscreenCredential mCurrentCredential;
         private LockscreenCredential mChosenPassword;
@@ -1125,7 +1124,7 @@ public class ChooseLockPassword extends SettingsActivity {
                 mAutoPinConfirmOption.setVisibility(View.VISIBLE);
                 mAutoConfirmSecurityMessage.setVisibility(View.VISIBLE);
                 if (!mIsAutoPinConfirmOptionSetManually) {
-                    mAutoPinConfirmOption.setChecked(length == MIN_AUTO_PIN_REQUIREMENT_LENGTH);
+                    mAutoPinConfirmOption.setChecked(length >= MIN_AUTO_PIN_REQUIREMENT_LENGTH);
                 }
             } else {
                 mAutoPinConfirmOption.setVisibility(View.GONE);
